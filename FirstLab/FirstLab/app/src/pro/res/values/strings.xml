@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="welcome">Добро пожаловать в</string>
+    <string name="name">PRO</string>
+    <string name="version">версию приложения</string>
+    <string name="text">Вам доступна иконка приложения с лейблом PRO и зеленый цвет текста версии приложения</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="welcome">Добро пожаловать во</string>
+    <string name="name">FREE</string>
+    <string name="version">версию приложения</string>
+    <string name="text">Вам доступна иконка приложения с лейблом FREE и голубой цвет текста версии приложения</string>
+</resources>

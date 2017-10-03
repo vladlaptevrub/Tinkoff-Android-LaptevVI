@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="welcome">Добро пожаловать в</string>
+    <string name="name">DEMO</string>
+    <string name="version">версию приложения</string>
+    <string name="text">Вам доступна иконка приложения с лейблом DEMO и красный цвет текста версии приложения</string>
+</resources>
