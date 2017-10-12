@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:gravity="top"
+    android:orientation="vertical"
+    tools:context="fintech.tinkoff.secondlab.MainActivity">
+
+    <TextView
+        android:id="@+id/activityLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/first_activity_label"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/firstLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/first_edit_text_label"
+        android:textColor="?android:attr/colorEdgeEffect"/>
+
+    <EditText
+        android:id="@+id/messageEditText"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Your message"
+        android:inputType="textCapSentences"
+        android:textColorLink="@color/colorPrimaryDark"
+        android:textSize="14sp"
+        tools:layout_editor_absoluteX="52dp"
+        tools:layout_editor_absoluteY="97dp"/>
+
+    <Button
+        android:id="@+id/sendToMButton"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="Send"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/secondLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/second_edit_text_label"
+        android:textColor="?android:attr/colorEdgeEffect"/>
+
+    <EditText
+        android:id="@+id/viewEditText"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Your message"
+        android:inputType="textCapSentences"
+        android:textColorLink="@color/colorPrimaryDark"
+        android:textSize="14sp"
+        tools:layout_editor_absoluteX="52dp"
+        tools:layout_editor_absoluteY="177dp"/>
+
+    <Button
+        android:id="@+id/sendToVButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/messageFromSecondLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/message_from_second_text_label"
+        android:textColor="?android:attr/colorEdgeEffect"/>
+
+    <TextView
+        android:id="@+id/messageFromSecond"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"/>
+
+</LinearLayout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SecondLab</string>
+    <string name="first_activity_label">First Activity</string>
+    <string name="second_activity_label">Second Activity</string>
+    <string name="first_edit_text_label">Write down a text to share it by SMS messenger</string>
+    <string name="second_edit_text_label">Write down a text to share it with a Second Activity</string>
+    <string name="message_text_label">Message from First Activity:</string>
+    <string name="message_from_second_text_label">Message from Second Activity:</string>
+    <string name="new_message_label">Write down a new message for the First Activity</string>
+</resources>
