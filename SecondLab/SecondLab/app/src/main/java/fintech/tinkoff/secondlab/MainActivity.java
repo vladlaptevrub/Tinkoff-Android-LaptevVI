@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
                     Intent viewIntent = new Intent(MainActivity.this, SecondActivity.class);
                     viewIntent.putExtra("message", toView.getText().toString());
                     viewIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    viewIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(viewIntent);
 
                 } catch (Exception e){

@@ -42,7 +42,8 @@ public class SecondActivity extends AppCompatActivity {
                 try {
                     Intent viewIntent = new Intent(SecondActivity.this, MainActivity.class);
                     viewIntent.putExtra("message", newMessage.getText().toString());
-                    viewIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    viewIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    viewIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(viewIntent);
                 } catch (Exception e){
                     Toast.makeText(getApplicationContext(),
