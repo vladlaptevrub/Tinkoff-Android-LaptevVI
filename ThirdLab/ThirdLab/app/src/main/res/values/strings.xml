@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- App Data -->
+    <string name="app_name">ThirdLab</string>
+
+    <!-- Labels -->
+    <string name="first_label">Enter your first number</string>
+    <string name="second_label">Enter your second number</string>
+    <string name="third_label">Choose an action</string>
+    <string name="fourth_label">Your result</string>
+
+    <!-- Buttons -->
+    <string name="confirm">Confirm</string>
+    <string name="restart">Restart</string>
+
+    <!-- Radio Buttons -->
+    <string name="sum">Sum</string>
+    <string name="difference">Difference</string>
+    <string name="multiplication">Multiplication</string>
+    <string name="division">Division</string>
+    <string name="power">Power</string>
+
+</resources>

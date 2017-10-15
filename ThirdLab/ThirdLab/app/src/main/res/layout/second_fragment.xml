@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="30dp">
+
+    <TextView
+        android:id="@+id/secondTextView"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/second_label"
+        android:textColor="@color/colorPrimaryDark"/>
+
+    <EditText
+        android:id="@+id/secondNumberEditText"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Your number"
+        android:inputType="number"
+        android:textSize="14sp"/>
+
+    <Button
+        android:id="@+id/secondConfirmButton"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/confirm"/>
+
+</LinearLayout>
