@@ -1,0 +1,4 @@
+#Thu Oct 12 11:00:46 MSK 2017
+base.0=/Users/vladlaptevrub/AndroidStudioProjects/SecondLab/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
+renamed.0=classes.dex
+file.0=/Users/vladlaptevrub/AndroidStudioProjects/SecondLab/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex
