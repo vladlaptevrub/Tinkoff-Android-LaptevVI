@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/vladlaptevrub/AndroidStudioProjects/FourthLab/app/build/intermediates/res/merged/debug/mipmap-mdpi/ic_launcher.png",
+        "source": "/Users/vladlaptevrub/AndroidStudioProjects/FourthLab/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/vladlaptevrub/AndroidStudioProjects/FourthLab/app/build/intermediates/res/merged/debug/mipmap-mdpi/ic_launcher_round.png",
+        "source": "/Users/vladlaptevrub/AndroidStudioProjects/FourthLab/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    }
+]
