@@ -1,15 +1,148 @@
 package fintech.tinkoff.fifthlab;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends FragmentActivity implements
+        FirstFragment.FirstFragmentListener,
+        SecondFragment.SecondFragmentListener,
+        ThirdFragment.ThirdFragmentListener{
+
+    private final static int FIRST_PAGE = 0;
+    private final static int SECOND_PAGE = 1;
+    private final static int THIRD_PAGE = 2;
+
+    private final static int SQ = 1;
+    private final static int SQRT = 2;
+    private final static int DIV = 3;
+    private final static int COS = 4;
+    private final static int SIN = 5;
+
+    private static final int NUM_PAGES = 3;
+
+    private ViewPager mPager;
+    private PagerAdapter mPagerAdapter;
+    private CustomGraphView customGraphView;
+
+    private FirstFragment firstFragment;
+    private SecondFragment secondFragment;
+    private ThirdFragment thirdFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        CustomGraphView customGraphView = new CustomGraphView(this);
-        setContentView(customGraphView);
 
+        setContentView(R.layout.activity_main);
+        customGraphView = (CustomGraphView) findViewById(R.id.graphView);
+
+        mPager = (ViewPager) findViewById(R.id.pager);
+        mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+        mPager.setAdapter(mPagerAdapter);
+        mPager.setPageTransformer(true, new ZoomOutPageTransformer());
+    }
+
+    @Override
+    public void firstCallBack(int progress, boolean isVisible) {
+        customGraphView.setVisible(isVisible);
+        customGraphView.setScaleProgress((float)progress);
+        customGraphView.invalidate();
+    }
+
+    @Override
+    public void secondCallBack(String graphName, String axisNameY, String axisNameX) {
+        customGraphView.setGraphName(graphName);
+        customGraphView.setAxisNameY(axisNameY);
+        customGraphView.setAxisNameX(axisNameX);
+        customGraphView.invalidate();
+    }
+
+    @Override
+    public void thirdCallBack(int funcName, int funcColor) {
+        customGraphView.addFunc(new Func(funcName, funcColor));
+        customGraphView.invalidate();
+        String function = "error";
+        switch (funcName) {
+            case SQRT:
+                function = "'y = sqrt(2)' added";
+                break;
+            case SQ:
+                function = "'y = x^2' added";
+                break;
+            case DIV:
+                function = "'y = 1/x' added";
+                break;
+            case COS:
+                function = "'y = cos(x)' added";
+                break;
+            case SIN:
+                function = "'y = sin(x)' added";
+                break;
+            default:
+                break;
+        }
+        Toast toast = Toast.makeText(this, function, Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    @Override
+    public void clearCallBack() {
+        customGraphView.clear();
+        Toast toast = Toast.makeText(this, "Done", Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    @Override
+    public void backFromThird(){
+        mPager.setCurrentItem(mPager.getCurrentItem() - 1);
+    }
+
+    @Override
+    public void backFromSecond(){
+        mPager.setCurrentItem(mPager.getCurrentItem() - 1);
+    }
+
+    @Override
+    public void nextFromSecond(){
+        mPager.setCurrentItem(mPager.getCurrentItem() + 1);
+    }
+
+    @Override
+    public void nextFromFirst(){
+        mPager.setCurrentItem(mPager.getCurrentItem() + 1);
+    }
+
+    private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
+        public ScreenSlidePagerAdapter(FragmentManager fragmentManager) {
+            super(fragmentManager);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            switch (position){
+
+                case FIRST_PAGE:
+                    thirdFragment = new ThirdFragment();
+                    return thirdFragment;
+                case SECOND_PAGE:
+                    secondFragment = new SecondFragment();
+                    return secondFragment;
+                case THIRD_PAGE:
+                    firstFragment = new FirstFragment();
+                    return firstFragment;
+                default:
+                    return new ThirdFragment();
+            }
+        }
+
+        @Override
+        public int getCount() {
+            return NUM_PAGES;
+        }
     }
 }
