@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="20.0"
+        android:hint="25.0"
         android:inputType="numberDecimal"/>
 
     <LinearLayout

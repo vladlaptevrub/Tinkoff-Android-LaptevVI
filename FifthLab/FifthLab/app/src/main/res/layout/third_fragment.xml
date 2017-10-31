@@ -16,24 +16,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="right"
         android:orientation="horizontal">
 
         <Spinner
             android:id="@+id/nameSpinner"
-            android:layout_width="130dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:entries="@array/nameItems"/>
 
         <Spinner
             android:id="@+id/colorSpinner"
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:entries="@array/colorItems"/>
 
         <Button
             android:id="@+id/addButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add"/>
 
@@ -108,36 +109,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="right"
         android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Rounded:"
-            android:textColor="@android:color/black"
-            android:textSize="14sp"/>
-
-        <CheckBox
-            android:id="@+id/roundedCheckBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="false"
-            android:textSize="14sp"/>
 
         <Spinner
             android:id="@+id/colorCustomSpinner"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:entries="@array/colorItems"/>
 
         <Button
             android:id="@+id/addCustomButton"
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="Add"/>
     </LinearLayout>
 

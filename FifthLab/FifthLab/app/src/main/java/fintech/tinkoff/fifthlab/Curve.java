@@ -6,15 +6,13 @@ public class Curve {
     private float stopX;
     private float stopY;
     private int color;
-    private boolean isRounded;
 
-    public Curve(float startX, float startY, float stopX, float stopY, int color, boolean isRounded){
+    public Curve(float startX, float startY, float stopX, float stopY, int color){
         this.startX = startX;
         this.startY = startY;
         this.stopX = stopX;
         this.stopY = stopY;
         this.color = color;
-        this.isRounded = isRounded;
     }
 
     public float getStartX(){

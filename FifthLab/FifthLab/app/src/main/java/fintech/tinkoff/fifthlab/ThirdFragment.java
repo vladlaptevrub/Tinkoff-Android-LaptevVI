@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -23,7 +22,7 @@ public class ThirdFragment extends Fragment {
         void thirdCallBack(int funcName, int funcColor);
         void clearCallBack();
         void nextFromFirst();
-        void addCustomCurve(float startX, float startY, float stopX, float stopY, int color, boolean isRounded);
+        void addCustomCurve(float startX, float startY, float stopX, float stopY, int color);
         void emptyFromThird();
     }
 
@@ -66,7 +65,6 @@ public class ThirdFragment extends Fragment {
         final EditText sYInput = (EditText) getActivity().findViewById(R.id.startYInput);
         final EditText lXInput = (EditText) getActivity().findViewById(R.id.stopXInput);
         final EditText lYInput = (EditText) getActivity().findViewById(R.id.stopYInput);
-        final CheckBox roundedCheckBox = (CheckBox) getActivity().findViewById(R.id.roundedCheckBox);
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +87,7 @@ public class ThirdFragment extends Fragment {
                     float stopX = Float.parseFloat(lXInput.getText().toString());
                     float stopY = Float.parseFloat(lYInput.getText().toString());
                     int color = colorCustomSpinner.getSelectedItemPosition() + 1;
-                    listener.addCustomCurve(startX, startY, stopX, stopY, color, roundedCheckBox.isChecked());
+                    listener.addCustomCurve(startX, startY, stopX, stopY, color);
                 } else {
                     listener.emptyFromThird();
                 }

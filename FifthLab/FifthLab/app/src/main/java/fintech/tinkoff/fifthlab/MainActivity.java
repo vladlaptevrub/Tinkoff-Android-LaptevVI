@@ -161,8 +161,8 @@ public class MainActivity extends FragmentActivity implements
     }
 
     @Override
-    public void addCustomCurve(float startX, float startY, float stopX, float stopY, int color, boolean isRounded) {
-        customGraphView.addCustomCurve(new Curve(startX, startY, stopX, stopY, color, isRounded));
+    public void addCustomCurve(float startX, float startY, float stopX, float stopY, int color) {
+        customGraphView.addCustomCurve(new Curve(startX, startY, stopX, stopY, color));
         customGraphView.invalidate();
         Toast toast = Toast.makeText(this, "Done", Toast.LENGTH_SHORT);
         toast.show();

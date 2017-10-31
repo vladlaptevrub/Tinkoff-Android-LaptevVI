@@ -17,7 +17,6 @@ public class CustomGraphView extends View {
     private Paint mAxisName;
     private Paint mFuncLimit;
     private Path path;
-    private Path curvePath;
     private int parentWidth;
     private int parentHeight;
 
@@ -152,32 +151,52 @@ public class CustomGraphView extends View {
     }
 
     private void drawCurve(Curve curve, float graphPadding, float graphWidth, float graphHeight, float step, Canvas canvas){
-        canvas.save();
 
-        float firstX;
-        float firstY;
-        float secondX;
-        float secondY;
+        float firstX = curve.getStartX();
+        float firstY = curve.getStartY();
+        float secondX = curve.getStopX();
+        float secondY = curve.getStopY();
 
-        if (curve.getStartX() < startX){
-            firstX = graphPadding * 2.0f + startX * step;
-        } else {
-            firstX = graphPadding * 2.0f + curve.getStartX() * step;
+        if (secondX != firstX) {
+            float a = (secondY - firstY) / (secondX - firstX);
+            float k = (secondX * firstY - firstX * secondY) / (secondX - firstX);
+            float oldX = startX;
+            float oldY = a * oldX + k;
+            float newY = 0.0f;
+            float newX = oldX + 0.1f;
+            float limitX = (graphWidth - graphPadding * 2.0f) / scale;
+            float finalX = -1.0f;
+            float finalY = -1.0f;
+
+            setColor(curve.getColor());
+
+            //  Draw function
+            for(; newX <= lastX; newX+= 0.05f){
+                if (newX > limitX) break;
+                newY = a * newX + k;
+                if (graphHeight - newY * step < graphHeight && graphHeight - newY * step > graphPadding) {
+                    canvas.drawLine(graphPadding * 2.0f + oldX * step, graphHeight - oldY * step,
+                            graphPadding * 2.0f + newX * step, graphHeight - newY * step, mFuncPaint);
+                    finalX = newX;
+                    finalY = newY;
+                }
+                oldX = newX;
+                oldY = newY;
+            }
+
+            if (finalX >= 0) {
+                canvas.drawText("y = " + a + " * x + " + k, graphPadding * 2.0f + finalX * step - 30.0f, graphHeight - finalY * step - 15.0f, mAxisName);
+            }
+
+        } else if (firstX > startX && firstX < lastX){
+            setColor(curve.getColor());
+
+            canvas.drawLine(graphPadding * 2.0f + firstX * step, graphPadding,
+                    graphPadding * 2.0f + secondX * step, graphHeight, mFuncPaint);
+
+            canvas.drawText("x = " + firstX, graphPadding * 2.0f + firstX * step + 30.0f, graphPadding, mAxisName);
         }
 
-        if (curve.getStopX() > lastX){
-            secondX = graphPadding * 2.0f + lastX * step;
-        } else {
-            secondX = graphPadding * 2.0f + curve.getStopX() * step;
-        }
-
-        setColor(curve.getColor());
-        canvas.translate(firstX, graphHeight - curve.getStartY() * step);
-        curvePath = new Path();
-        curvePath.rLineTo(secondX, (curve.getStopY() - curve.getStartY()) * step * -1.0f);
-        canvas.drawPath(curvePath, mFuncPaint);
-
-        canvas.restore();
     }
 
     private void drawArrows(float graphPadding, float graphWidth, float graphHeight, Canvas canvas){
@@ -263,7 +282,7 @@ public class CustomGraphView extends View {
         setColor(color);
 
         //  Draw function
-        for(; newX < lastX; newX+= 0.1f){
+        for(; newX < lastX; newX+= 0.05f){
             newY = (float)Math.sqrt((double)newX);
 
             if (graphHeight - newY * step < graphPadding) break;
@@ -276,7 +295,7 @@ public class CustomGraphView extends View {
 
         }
 
-        canvas.drawText("y = sqrt(x)", newX * step - 30.0f, graphHeight - newY * step - 30.0f, mAxisName);
+        canvas.drawText("y = sqrt(x)", graphPadding + newX * step + 10.0f, graphHeight - newY * step - 30.0f, mAxisName);
     }
 
     private void drawSQFunc(float graphPadding, float graphWidth, float graphHeight, float step, int color, Canvas canvas){
@@ -289,7 +308,7 @@ public class CustomGraphView extends View {
         setColor(color);
 
         //  Draw function
-        for(; newX < lastX; newX+= 0.1f){
+        for(; newX < lastX; newX+= 0.05f){
             newY = newX*newX;
 
             if (graphHeight - newY * step < graphPadding) break;
@@ -302,7 +321,7 @@ public class CustomGraphView extends View {
 
         }
 
-        canvas.drawText("y = x^2", newX * step + 100.0f, graphPadding + 20.0f, mAxisName);
+        canvas.drawText("y = x^2", graphPadding * 2.0f + newX * step + 10.0f, graphPadding + 20.0f, mAxisName);
     }
 
     private void drawDIVFunc(float graphPadding, float graphWidth, float graphHeight, float step, int color, Canvas canvas){
@@ -317,17 +336,19 @@ public class CustomGraphView extends View {
 
         //  Draw function
         for(; newX < lastX; newX+= 0.01f){
+            if (newX > limitX) break;
             if (newX == 0.0f) newX += 0.01f;
             newY = 1/newX;
 
-            if (newX > limitX) break;
+            if (graphHeight - newY * step < graphHeight && graphHeight - newY * step > graphPadding * 2.0f) {
 
-            canvas.drawLine(graphPadding * 2.0f + oldX * step, graphHeight - oldY * step,
-                    graphPadding * 2.0f + newX * step, graphHeight - newY * step, mFuncPaint);
+                canvas.drawLine(graphPadding * 2.0f + oldX * step, graphHeight - oldY * step,
+                        graphPadding * 2.0f + newX * step, graphHeight - newY * step, mFuncPaint);
+            }
             oldX = newX;
             oldY = newY;
 
-            canvas.drawText("y = 1/x", 2.0f * step + 100.0f, graphHeight - 0.5f * step, mAxisName);
+            canvas.drawText("y = 1/x", graphPadding * 2.0f + 2.0f * step + 100.0f, graphHeight - 0.5f * step, mAxisName);
         }
     }
 
@@ -341,7 +362,7 @@ public class CustomGraphView extends View {
         setColor(color);
 
         //  Draw function
-        for(; newX < lastX; newX+= 0.1f){
+        for(; newX < lastX; newX+= 0.05f){
             newY = (float)Math.cos((double)newX);
 
             if (graphHeight - newY * step < graphPadding) break;
@@ -353,7 +374,7 @@ public class CustomGraphView extends View {
             oldY = newY;
         }
 
-        canvas.drawText("y = cos(x)", newX * step, graphHeight - newY * step, mAxisName);
+        canvas.drawText("y = cos(x)", graphPadding * 2.0f + newX * step - 30.0f, graphHeight - newY * step, mAxisName);
     }
 
     private void drawSINFunc(float graphPadding, float graphWidth, float graphHeight, float step, int color, Canvas canvas){
@@ -366,7 +387,7 @@ public class CustomGraphView extends View {
         setColor(color);
 
         //  Draw function
-        for(; newX < lastX; newX+= 0.1f){
+        for(; newX < lastX; newX+= 0.05f){
             newY = (float)Math.sin((double)newX);
 
             if (graphHeight - newY * step < graphPadding) break;
@@ -378,7 +399,7 @@ public class CustomGraphView extends View {
             oldY = newY;
         }
 
-        canvas.drawText("y = sin(x)", newX * step, graphHeight - newY * step, mAxisName);
+        canvas.drawText("y = sin(x)", graphPadding * 2.0f + newX * step - 30.0f, graphHeight - newY * step, mAxisName);
     }
 
     private void setColor(int color){
