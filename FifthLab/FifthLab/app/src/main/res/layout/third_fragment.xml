@@ -13,43 +13,139 @@
         android:text="Choose function:"
         android:textColor="@color/colorPrimaryDark"/>
 
-    <Spinner
-        android:id="@+id/nameSpinner"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:entries="@array/nameItems"/>
-
-    <TextView
-        android:id="@+id/colorLabel"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:gravity="center_horizontal"
-        android:text="Choose color:"
-        android:textAlignment="textStart"
-        android:textColor="@color/colorPrimaryDark"/>
-
-    <Spinner
-        android:id="@+id/colorSpinner"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:entries="@array/colorItems"/>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/nameSpinner"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:entries="@array/nameItems"/>
+
+        <Spinner
+            android:id="@+id/colorSpinner"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:entries="@array/colorItems"/>
 
         <Button
             android:id="@+id/addButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Start X,Y:"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"/>
+
+        <EditText
+            android:id="@+id/startXInput"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="0.0"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"/>
+
+        <EditText
+            android:id="@+id/startYInput"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="0.0"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Stop X,Y"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"/>
+
+        <EditText
+            android:id="@+id/stopXInput"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="0.0"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"/>
+
+        <EditText
+            android:id="@+id/stopYInput"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="0.0"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Rounded:"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"/>
+
+        <CheckBox
+            android:id="@+id/roundedCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:textSize="14sp"/>
+
+        <Spinner
+            android:id="@+id/colorCustomSpinner"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:entries="@array/colorItems"/>
+
+        <Button
+            android:id="@+id/addCustomButton"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Add"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/clearButton"

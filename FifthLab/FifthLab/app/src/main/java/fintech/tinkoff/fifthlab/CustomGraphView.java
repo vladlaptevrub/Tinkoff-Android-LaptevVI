@@ -3,7 +3,9 @@ package fintech.tinkoff.fifthlab;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.DashPathEffect;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -13,12 +15,19 @@ public class CustomGraphView extends View {
     private Paint mAxisPaint;
     private Paint mFuncPaint;
     private Paint mAxisName;
+    private Paint mFuncLimit;
+    private Path path;
+    private Path curvePath;
     private int parentWidth;
     private int parentHeight;
 
     private boolean isVisible = true;
-    private float scaleProgress = 2.0f;
+    private float scaleProgress = 16.0f;
     private float scale = 120.0f;
+    private float startX = 0.0f;
+    private float lastX = 25.0f;
+    private float gridStep = 1.0f;
+    private boolean isLimited = false;
 
     private String graphName = "Your graph";
     private String axisNameY = "Axis Y";
@@ -37,7 +46,7 @@ public class CustomGraphView extends View {
     private final static int YELLOW = 5;
 
     private ArrayList<Func> funcList= new ArrayList<>();
-    private int funcCount = 0;
+    private ArrayList<Curve> curveList= new ArrayList<>();
 
     private int func = SIN;
     private int funcColor = 2;
@@ -65,23 +74,34 @@ public class CustomGraphView extends View {
         float graphHeight = (float)parentHeight - graphPadding * 2.0f;
         super.onDraw(canvas);
 
+        path = new Path();
+        path.rLineTo(0, graphHeight + graphPadding * 2.0f);
+
         mAxisPaint = new Paint();
         mAxisPaint.setStrokeWidth(3);
         mAxisPaint.setColor(Color.BLACK);
-        mAxisPaint.setTextSize(25.0f);
+        mAxisPaint.setTextSize(20.0f);
         mAxisPaint.setFakeBoldText(true);
 
         mAxisName = new Paint();
         mAxisName.setStrokeWidth(2);
-        mAxisName.setTextSize(30.0f);
+        mAxisName.setTextSize(20.0f);
         mAxisName.setColor(Color.GRAY);
         mAxisName.setFakeBoldText(true);
 
-        mFuncPaint = new Paint();
+        mFuncPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mFuncPaint.setStyle(Paint.Style.STROKE);
         mFuncPaint.setColor(Color.BLUE);
         mFuncPaint.setStrokeWidth(3);
 
+        mFuncLimit = new Paint();
+        mFuncLimit.setStyle(Paint.Style.STROKE);
+        mFuncLimit.setColor(Color.RED);
+        mFuncLimit.setStrokeWidth(3);
+        mFuncLimit.setPathEffect(new DashPathEffect(new float[] { 30.0f, 15.0f}, 0));
+
         scale = 40.0f + scaleProgress * 5.0f;
+        //lastX = (graphWidth - graphPadding * 2.0f) / scale;
 
         drawNet(graphPadding, graphWidth, graphHeight, scale, isVisible, canvas);
         drawArrows(graphPadding, graphWidth, graphHeight, canvas);
@@ -111,6 +131,14 @@ public class CustomGraphView extends View {
             }
         }
 
+        for (Curve customCurve:curveList){
+            drawCurve(customCurve, graphPadding, graphWidth, graphHeight, scale, canvas);
+        }
+
+        if (isLimited){
+            drawLimit(graphPadding, graphWidth, graphHeight, scale, isVisible, canvas);
+        }
+
         canvas.save();
         canvas.rotate(-90.0f);
         canvas.drawText(axisNameY, graphHeight / -2.0f - graphPadding,  60.0f, mAxisName);
@@ -121,6 +149,35 @@ public class CustomGraphView extends View {
 
     public void addFunc(Func function){
         funcList.add(function);
+    }
+
+    private void drawCurve(Curve curve, float graphPadding, float graphWidth, float graphHeight, float step, Canvas canvas){
+        canvas.save();
+
+        float firstX;
+        float firstY;
+        float secondX;
+        float secondY;
+
+        if (curve.getStartX() < startX){
+            firstX = graphPadding * 2.0f + startX * step;
+        } else {
+            firstX = graphPadding * 2.0f + curve.getStartX() * step;
+        }
+
+        if (curve.getStopX() > lastX){
+            secondX = graphPadding * 2.0f + lastX * step;
+        } else {
+            secondX = graphPadding * 2.0f + curve.getStopX() * step;
+        }
+
+        setColor(curve.getColor());
+        canvas.translate(firstX, graphHeight - curve.getStartY() * step);
+        curvePath = new Path();
+        curvePath.rLineTo(secondX, (curve.getStopY() - curve.getStartY()) * step * -1.0f);
+        canvas.drawPath(curvePath, mFuncPaint);
+
+        canvas.restore();
     }
 
     private void drawArrows(float graphPadding, float graphWidth, float graphHeight, Canvas canvas){
@@ -137,63 +194,80 @@ public class CustomGraphView extends View {
     }
 
     private void drawNet(float graphPadding, float graphWidth, float graphHeight, float step, boolean isVisible, Canvas canvas){
-        int yPos = 1;
-        int xPos = 1;
+        float yPos = gridStep;
+        float xPos = gridStep;
         final float limitStepY = graphPadding + 30.0f;
         final float limitStepX = graphWidth - 30.0f;
 
         //  Draw grid for Y
         if (isVisible) {
-            for (float nStep = graphHeight - step; nStep > limitStepY; nStep -= step) {
+            for (float nStep = graphHeight - step * gridStep; nStep > limitStepY; nStep -= step * gridStep) {
                 canvas.drawText(String.valueOf(yPos), graphPadding + 15.0f, nStep + 10.0f, mAxisPaint);
                 canvas.drawLine(graphPadding * 2.0f - 15.0f, nStep, graphPadding * 2.0f, nStep, mAxisPaint);
                 canvas.drawLine(graphPadding * 2.0f, nStep, graphWidth, nStep, mAxisName);
-                yPos++;
+                yPos += gridStep;
             }
 
             //  Draw grid for X
-            for (float nStep = graphPadding * 2.0f + step; nStep < limitStepX; nStep += step) {
+            for (float nStep = graphPadding * 2.0f + step * gridStep; nStep < limitStepX; nStep += step * gridStep) {
                 canvas.drawLine(nStep, graphHeight, nStep, graphHeight + 15.0f, mAxisPaint);
                 canvas.drawLine(nStep, graphHeight, nStep, graphPadding, mAxisName);
                 canvas.drawText(String.valueOf(xPos), nStep - 10.0f, graphHeight + 40.0f, mAxisPaint);
-                xPos++;
+                xPos += gridStep;
             }
         } else {
-            for (float nStep = graphHeight - step; nStep > limitStepY; nStep -= step) {
+            for (float nStep = graphHeight - step * gridStep; nStep > limitStepY; nStep -= step * gridStep) {
                 canvas.drawText(String.valueOf(yPos), graphPadding + 15.0f, nStep + 10.0f, mAxisPaint);
                 canvas.drawLine(graphPadding * 2.0f - 15.0f, nStep, graphPadding * 2.0f, nStep, mAxisPaint);
-                yPos++;
+                yPos += gridStep;
             }
 
             //  Draw grid for X
-            for (float nStep = graphPadding * 2.0f + step; nStep < limitStepX; nStep += step) {
+            for (float nStep = graphPadding * 2.0f + step * gridStep; nStep < limitStepX; nStep += step * gridStep) {
                 canvas.drawLine(nStep, graphHeight, nStep, graphHeight + 15.0f, mAxisPaint);
                 canvas.drawText(String.valueOf(xPos), nStep - 10.0f, graphHeight + 40.0f, mAxisPaint);
-                xPos++;
+                xPos += gridStep;
             }
         }
     }
 
+    private void drawLimit(float graphPadding, float graphWidth, float graphHeight, float step, boolean isVisible, Canvas canvas){
+        canvas.save();
+
+        if (graphPadding * 2.0f + startX * step < graphWidth) {
+            canvas.translate(graphPadding * 2.0f + startX * step, graphPadding);
+            canvas.drawPath(path, mFuncLimit);
+        }
+
+        if (graphPadding * 2.0f + lastX * step < graphWidth) {
+            canvas.translate(graphPadding * 2.0f + lastX * step - (graphPadding * 2.0f + startX * step), 0.0f);
+            canvas.drawPath(path, mFuncLimit);
+        }
+
+        canvas.restore();
+    }
+
     public void clear(){
         funcList.clear();
+        curveList.clear();
         invalidate();
     }
 
     private void drawSQRTFunc(float graphPadding, float graphWidth, float graphHeight, float step, int color, Canvas canvas){
-        float oldY = 0.0f;
-        float oldX = 0.0f;
+        float oldX = startX;
+        float oldY = (float)Math.sqrt((double)oldX);
         float newY = 0.0f;
-        float newX = 0.0f;
-        float limitX = (graphWidth - graphPadding * 2.0f) / step;
+        float newX = oldX + 0.1f;
+        float limitX = (graphWidth - graphPadding * 2.0f) / scale;
 
         setColor(color);
 
         //  Draw function
-        for(; newX < limitX; newX+= 0.1f){
-            //newY = newX*newX;
+        for(; newX < lastX; newX+= 0.1f){
             newY = (float)Math.sqrt((double)newX);
 
             if (graphHeight - newY * step < graphPadding) break;
+            if (newX > limitX) break;
 
             canvas.drawLine(graphPadding * 2.0f + oldX * step, graphHeight - oldY * step,
                     graphPadding * 2.0f + newX * step, graphHeight - newY * step, mFuncPaint);
@@ -206,19 +280,20 @@ public class CustomGraphView extends View {
     }
 
     private void drawSQFunc(float graphPadding, float graphWidth, float graphHeight, float step, int color, Canvas canvas){
-        float oldY = 0.0f;
-        float oldX = 0.0f;
+        float oldX = startX;
+        float oldY = oldX*oldX;
         float newY = 0.0f;
-        float newX = 0.0f;
-        float limitX = (graphWidth - graphPadding * 2.0f) / step;
+        float newX = oldX + 0.1f;
+        float limitX = (graphWidth - graphPadding * 2.0f) / scale;
 
         setColor(color);
 
         //  Draw function
-        for(; newX < limitX; newX+= 0.1f){
+        for(; newX < lastX; newX+= 0.1f){
             newY = newX*newX;
 
             if (graphHeight - newY * step < graphPadding) break;
+            if (newX > limitX) break;
 
             canvas.drawLine(graphPadding * 2.0f + oldX * step, graphHeight - oldY * step,
                     graphPadding * 2.0f + newX * step, graphHeight - newY * step, mFuncPaint);
@@ -231,21 +306,21 @@ public class CustomGraphView extends View {
     }
 
     private void drawDIVFunc(float graphPadding, float graphWidth, float graphHeight, float step, int color, Canvas canvas){
-        float oldY = 0.0f;
-        float oldX = 0.0f;
+        float oldX = startX;
+        if (oldX == 0.0f) oldX += 0.01f;
+        float oldY = 1/oldX;
         float newY = 0.0f;
-        float newX = 0.01f;
-        float limitX = (graphWidth - graphPadding * 2.0f) / step;
-
-        oldX = newX;
-        oldY = 1.0f/newX;
-        newX += 0.01f;
+        float newX = oldX + 0.01f;
+        float limitX = (graphWidth - graphPadding * 2.0f) / scale;
 
         setColor(color);
 
         //  Draw function
-        for(; newX < limitX; newX+= 0.01f){
+        for(; newX < lastX; newX+= 0.01f){
+            if (newX == 0.0f) newX += 0.01f;
             newY = 1/newX;
+
+            if (newX > limitX) break;
 
             canvas.drawLine(graphPadding * 2.0f + oldX * step, graphHeight - oldY * step,
                     graphPadding * 2.0f + newX * step, graphHeight - newY * step, mFuncPaint);
@@ -257,19 +332,20 @@ public class CustomGraphView extends View {
     }
 
     private void drawCOSFunc(float graphPadding, float graphWidth, float graphHeight, float step, int color, Canvas canvas){
-        float oldY = 1.0f;
-        float oldX = 0.0f;
+        float oldX = startX;
+        float oldY = (float)Math.cos((double)oldX);
         float newY = 0.0f;
-        float newX = 0.0f;
-        float limitX = (graphWidth - graphPadding * 2.0f) / step;
+        float newX = oldX + 0.1f;
+        float limitX = (graphWidth - graphPadding * 2.0f) / scale;
 
         setColor(color);
 
         //  Draw function
-        for(; newX < limitX; newX+= 0.1f){
+        for(; newX < lastX; newX+= 0.1f){
             newY = (float)Math.cos((double)newX);
 
             if (graphHeight - newY * step < graphPadding) break;
+            if (newX > limitX) break;
 
             canvas.drawLine(graphPadding * 2.0f + oldX * step, graphHeight - oldY * step,
                     graphPadding * 2.0f + newX * step, graphHeight - newY * step, mFuncPaint);
@@ -281,19 +357,20 @@ public class CustomGraphView extends View {
     }
 
     private void drawSINFunc(float graphPadding, float graphWidth, float graphHeight, float step, int color, Canvas canvas){
-        float oldY = 0.0f;
-        float oldX = 0.0f;
+        float oldX = startX;
+        float oldY = (float)Math.sin((double)oldX);
         float newY = 0.0f;
-        float newX = 0.0f;
-        float limitX = (graphWidth - graphPadding * 2.0f) / step;
+        float newX = oldX + 0.1f;
+        float limitX = (graphWidth - graphPadding * 2.0f) / scale;
 
         setColor(color);
 
         //  Draw function
-        for(; newX < limitX; newX+= 0.1f){
+        for(; newX < lastX; newX+= 0.1f){
             newY = (float)Math.sin((double)newX);
 
             if (graphHeight - newY * step < graphPadding) break;
+            if (newX > limitX) break;
 
             canvas.drawLine(graphPadding * 2.0f + oldX * step, graphHeight - oldY * step,
                     graphPadding * 2.0f + newX * step, graphHeight - newY * step, mFuncPaint);
@@ -327,6 +404,18 @@ public class CustomGraphView extends View {
         }
     }
 
+    public void addCustomCurve(Curve curve){
+        curveList.add(curve);
+    }
+
+    public void setStartX(float startPoint){
+        startX = startPoint;
+    }
+
+    public void setLastX(float lastPoint){
+        lastX = lastPoint;
+    }
+
     public void setVisible(boolean bool){
         isVisible = bool;
     }
@@ -345,5 +434,26 @@ public class CustomGraphView extends View {
 
     public void setAxisNameX(String name){
         axisNameX = name;
+    }
+
+    public void setDefaultGridStep(){
+        gridStep = 1.0f;
+        invalidate();
+    }
+
+    public void setGridStep(float newStep){
+        gridStep = newStep;
+        invalidate();
+    }
+
+    public void deleteLimit(){
+        setLimit(false);
+        startX = 0.0f;
+        lastX = 25.0f;
+        invalidate();
+    }
+
+    public void setLimit(boolean bool){
+        isLimited = bool;
     }
 }

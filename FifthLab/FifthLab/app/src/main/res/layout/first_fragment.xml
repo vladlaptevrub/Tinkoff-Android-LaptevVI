@@ -62,13 +62,38 @@
         android:text="Grid"
         android:textColor="@color/colorPrimaryDark"/>
 
-    <CheckBox
-        android:id="@+id/visibleCheckBox"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:checked="true"
-        android:duplicateParentState="false"
-        android:text="Visible"/>
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/visibleCheckBox"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:duplicateParentState="false"
+            android:text="Visible"/>
+
+        <TextView
+            android:id="@+id/gridInputLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Grid's step:"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"/>
+
+        <EditText
+            android:id="@+id/gridStepInput"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:ems="10"
+            android:hint="1.0"
+            android:inputType="numberDecimal"
+            android:textAlignment="center"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -78,9 +103,24 @@
 
         <Button
             android:id="@+id/backButtonThird"
-            android:layout_width="100dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Back"/>
+
+        <Button
+            android:id="@+id/acceptButtonFirst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Accept"/>
+
+        <Button
+            android:id="@+id/defaultButtonFirst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Default"/>
 
     </LinearLayout>
 

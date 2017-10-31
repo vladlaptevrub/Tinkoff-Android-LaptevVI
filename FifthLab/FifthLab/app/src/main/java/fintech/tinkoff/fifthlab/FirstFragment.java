@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.SeekBar;
 
 public class FirstFragment extends Fragment {
@@ -21,6 +22,10 @@ public class FirstFragment extends Fragment {
     public interface FirstFragmentListener{
         void firstCallBack(int progress, boolean isVisible);
         void backFromThird();
+        void acceptGridFromFirst(float gridStep);
+        void defaultFromFirst();
+        void emptyFromFirst();
+        void impossibleFromFirst();
     }
 
     @Override
@@ -54,6 +59,9 @@ public class FirstFragment extends Fragment {
         final SeekBar scaleBar = (SeekBar) getActivity().findViewById(R.id.scaleSeekBar);
         CheckBox visibleCheckBox = (CheckBox) getActivity().findViewById(R.id.visibleCheckBox);
         Button backButton = (Button) getActivity().findViewById(R.id.backButtonThird);
+        Button defaultButton = (Button) getActivity().findViewById(R.id.defaultButtonFirst);
+        Button acceptButton = (Button) getActivity().findViewById(R.id.acceptButtonFirst);
+        final EditText gridStepInput = (EditText) getActivity().findViewById(R.id.gridStepInput);
 
         scaleProgress = scaleBar.getProgress();
         visible = visibleCheckBox.isChecked();
@@ -88,6 +96,31 @@ public class FirstFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 listener.backFromThird();
+            }
+        });
+
+        acceptButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                float stepSize;
+                if (gridStepInput.getText().toString().length() > 0) {
+                    stepSize = Float.parseFloat(gridStepInput.getText().toString());
+                    if (stepSize < 0.5f){
+                        listener.impossibleFromFirst();
+                    } else {
+                        listener.acceptGridFromFirst(stepSize);
+                    }
+                } else {
+                    listener.emptyFromFirst();
+                }
+
+            }
+        });
+
+        defaultButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.defaultFromFirst();
             }
         });
     }

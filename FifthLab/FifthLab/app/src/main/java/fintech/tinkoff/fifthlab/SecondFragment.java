@@ -21,6 +21,7 @@ public class SecondFragment extends Fragment {
         void secondCallBack(String graphName, String axisNameY, String axisNameX);
         void backFromSecond();
         void nextFromSecond();
+        void emptyFromSecond();
     }
 
     @Override
@@ -61,17 +62,18 @@ public class SecondFragment extends Fragment {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (graphNameEdit.getText().toString().length() > 0){
-                    oldGraphName = graphNameEdit.getText().toString();
-                }
-                if (axisNameY.getText().toString().length() > 0){
-                    oldAxisNameY = axisNameY.getText().toString();
-                }
-                if (axisNameX.getText().toString().length() > 0){
-                    oldAxisNameX = axisNameX.getText().toString();
-                }
+                if (graphNameEdit.getText().toString().length() > 0 &&
+                        axisNameY.getText().toString().length() > 0 &&
+                        axisNameX.getText().toString().length() > 0){
 
-                listener.secondCallBack(oldGraphName, oldAxisNameY, oldAxisNameX);
+                    oldGraphName = graphNameEdit.getText().toString();
+                    oldAxisNameY = axisNameY.getText().toString();
+                    oldAxisNameX = axisNameX.getText().toString();
+                    listener.secondCallBack(oldGraphName, oldAxisNameY, oldAxisNameX);
+
+                } else {
+                    listener.emptyFromSecond();
+                }
             }
         });
 
