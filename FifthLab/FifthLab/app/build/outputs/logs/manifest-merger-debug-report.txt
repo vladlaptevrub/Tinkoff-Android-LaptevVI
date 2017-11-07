@@ -1,0 +1,139 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:2:1-21:12
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0-alpha1.aar/fe21f6dbdaa44c68f7fc65cf60d98117/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/1e64d7b4369d4bc8f83ce9d0be83500b/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.0.0-alpha1.aar/f81029a0044257ea8df216f6c1b3dc36/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.0.0-alpha1.aar/e5b1c881e938169e0dc8e39efbbd0858/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-alpha1.aar/2ca466c643e74c5b2dc521eeb2fed083/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-alpha1.aar/574218f5c6fec79385394a2ee9082cee/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0-alpha1.aar/f709b51b800a602e001c8f6c0cdf6e4e/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-alpha1.aar/68ff791f93b82e5a6665aba338aa1eca/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-alpha1.aar/581596b28de67534e2501e93296b9336/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-alpha1.aar/4ee3b79ee8f71b930b1a07310618f309/AndroidManifest.xml:17:1-31:12
+INJECTED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:2:1-21:12
+INJECTED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:2:1-21:12
+	package
+		ADDED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:3:11-45
+		INJECTED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml
+		ADDED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:2:1-21:12
+		INJECTED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml
+		ADDED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:2:1-21:12
+		INJECTED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:5:5-19:19
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0-alpha1.aar/fe21f6dbdaa44c68f7fc65cf60d98117/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0-alpha1.aar/fe21f6dbdaa44c68f7fc65cf60d98117/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/1e64d7b4369d4bc8f83ce9d0be83500b/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/1e64d7b4369d4bc8f83ce9d0be83500b/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.0.0-alpha1.aar/f81029a0044257ea8df216f6c1b3dc36/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.0.0-alpha1.aar/f81029a0044257ea8df216f6c1b3dc36/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.0.0-alpha1.aar/e5b1c881e938169e0dc8e39efbbd0858/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.0.0-alpha1.aar/e5b1c881e938169e0dc8e39efbbd0858/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-alpha1.aar/2ca466c643e74c5b2dc521eeb2fed083/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-alpha1.aar/2ca466c643e74c5b2dc521eeb2fed083/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-alpha1.aar/574218f5c6fec79385394a2ee9082cee/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-alpha1.aar/574218f5c6fec79385394a2ee9082cee/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0-alpha1.aar/f709b51b800a602e001c8f6c0cdf6e4e/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0-alpha1.aar/f709b51b800a602e001c8f6c0cdf6e4e/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-alpha1.aar/68ff791f93b82e5a6665aba338aa1eca/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-alpha1.aar/68ff791f93b82e5a6665aba338aa1eca/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-alpha1.aar/581596b28de67534e2501e93296b9336/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-alpha1.aar/581596b28de67534e2501e93296b9336/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-alpha1.aar/4ee3b79ee8f71b930b1a07310618f309/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-alpha1.aar/4ee3b79ee8f71b930b1a07310618f309/AndroidManifest.xml:29:5-20
+	android:supportsRtl
+		ADDED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:8:9-41
+	android:roundIcon
+		ADDED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:9:9-54
+	android:icon
+		ADDED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:7:9-43
+	android:allowBackup
+		ADDED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:11:9-40
+activity#fintech.tinkoff.fifthlab.MainActivity
+ADDED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:12:9-18:20
+	android:name
+		ADDED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:12:19-47
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:13:13-17:29
+action#android.intent.action.MAIN
+ADDED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:14:17-68
+	android:name
+		ADDED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:14:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:16:17-76
+	android:name
+		ADDED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml:16:27-74
+uses-sdk
+INJECTED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml
+INJECTED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0-alpha1.aar/fe21f6dbdaa44c68f7fc65cf60d98117/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0-alpha1.aar/fe21f6dbdaa44c68f7fc65cf60d98117/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/1e64d7b4369d4bc8f83ce9d0be83500b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/1e64d7b4369d4bc8f83ce9d0be83500b/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.0.0-alpha1.aar/f81029a0044257ea8df216f6c1b3dc36/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.0.0-alpha1.aar/f81029a0044257ea8df216f6c1b3dc36/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.0.0-alpha1.aar/e5b1c881e938169e0dc8e39efbbd0858/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.0.0-alpha1.aar/e5b1c881e938169e0dc8e39efbbd0858/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-alpha1.aar/2ca466c643e74c5b2dc521eeb2fed083/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-alpha1.aar/2ca466c643e74c5b2dc521eeb2fed083/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-alpha1.aar/574218f5c6fec79385394a2ee9082cee/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-alpha1.aar/574218f5c6fec79385394a2ee9082cee/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0-alpha1.aar/f709b51b800a602e001c8f6c0cdf6e4e/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0-alpha1.aar/f709b51b800a602e001c8f6c0cdf6e4e/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-alpha1.aar/68ff791f93b82e5a6665aba338aa1eca/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-alpha1.aar/68ff791f93b82e5a6665aba338aa1eca/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-alpha1.aar/581596b28de67534e2501e93296b9336/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-alpha1.aar/581596b28de67534e2501e93296b9336/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-alpha1.aar/4ee3b79ee8f71b930b1a07310618f309/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-alpha1.aar/4ee3b79ee8f71b930b1a07310618f309/AndroidManifest.xml:21:5-23:58
+INJECTED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml
+INJECTED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0-alpha1.aar/fe21f6dbdaa44c68f7fc65cf60d98117/AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml
+		ADDED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml
+		ADDED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/vladlaptevrub/AndroidStudioProjects/FifthLab/app/src/main/AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0-alpha1.aar/fe21f6dbdaa44c68f7fc65cf60d98117/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.0.0-alpha1.aar/f81029a0044257ea8df216f6c1b3dc36/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.0.0-alpha1.aar/f81029a0044257ea8df216f6c1b3dc36/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.0.0-alpha1.aar/e5b1c881e938169e0dc8e39efbbd0858/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.0.0-alpha1.aar/e5b1c881e938169e0dc8e39efbbd0858/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-alpha1.aar/2ca466c643e74c5b2dc521eeb2fed083/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-alpha1.aar/2ca466c643e74c5b2dc521eeb2fed083/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-alpha1.aar/574218f5c6fec79385394a2ee9082cee/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-alpha1.aar/574218f5c6fec79385394a2ee9082cee/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0-alpha1.aar/f709b51b800a602e001c8f6c0cdf6e4e/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0-alpha1.aar/f709b51b800a602e001c8f6c0cdf6e4e/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-alpha1.aar/68ff791f93b82e5a6665aba338aa1eca/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-alpha1.aar/68ff791f93b82e5a6665aba338aa1eca/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-alpha1.aar/581596b28de67534e2501e93296b9336/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-alpha1.aar/581596b28de67534e2501e93296b9336/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-alpha1.aar/4ee3b79ee8f71b930b1a07310618f309/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-alpha1.aar/4ee3b79ee8f71b930b1a07310618f309/AndroidManifest.xml:25:5-27:41
+	android:value
+		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0-alpha1.aar/fe21f6dbdaa44c68f7fc65cf60d98117/AndroidManifest.xml:27:9-38
+	android:name
+		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] /Users/vladlaptevrub/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0-alpha1.aar/fe21f6dbdaa44c68f7fc65cf60d98117/AndroidManifest.xml:26:9-47
