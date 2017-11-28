@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.regex.Pattern;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
@@ -17,11 +17,11 @@ import javax.net.ssl.SSLSession;
 import tinkoff.fintech.ninethlab.presenter.IPresenter;
 
 public class Model implements IModel {
-    private List<String> data;
+    private HashMap<Long, String> data;
     private IPresenter presenter;
 
     public Model(IPresenter presenter){
-        data = new ArrayList<>();
+        data = new HashMap<>();
         this.presenter = presenter;
     }
 
@@ -38,7 +38,7 @@ public class Model implements IModel {
     }
 
     @Override
-    public List<String> returnData() {
+    public HashMap<Long, String> returnData() {
         return data;
     }
 
@@ -66,7 +66,11 @@ public class Model implements IModel {
                 data.clear();
                 for (int i = 0; i < parts.length; i++){
                     if (parts[i].equals("text")){
-                        data.add(parts[i+2]);
+                        int j = 0;
+                        while (!parts[i+j].equals("milliseconds")){
+                            j++;
+                        }
+                        data.put(Long.parseLong(parts[i+j+1].split(":")[1].split(Pattern.quote("}"))[0]), parts[i+2]);
                     }
                 }
                 Log.i("Model", "Data is updated");

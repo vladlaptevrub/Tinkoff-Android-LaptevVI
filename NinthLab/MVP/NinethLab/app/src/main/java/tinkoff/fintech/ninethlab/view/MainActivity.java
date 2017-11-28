@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity implements IView{
     @Override
     public void updateData() {
         presenter.updateModel();
-        Log.i("View:", "Send request to Presenter");
     }
 
     @Override

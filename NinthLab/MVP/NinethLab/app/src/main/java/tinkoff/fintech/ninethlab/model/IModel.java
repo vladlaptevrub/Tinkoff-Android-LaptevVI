@@ -1,8 +1,8 @@
 package tinkoff.fintech.ninethlab.model;
 
-import java.util.List;
+import java.util.HashMap;
 
 public interface IModel {
     void update();
-    List<String> returnData();
+    HashMap<Long, String> returnData();
 }

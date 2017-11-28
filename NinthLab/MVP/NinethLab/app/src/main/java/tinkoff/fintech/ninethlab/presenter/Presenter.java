@@ -2,7 +2,11 @@ package tinkoff.fintech.ninethlab.presenter;
 
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 import tinkoff.fintech.ninethlab.model.IModel;
 import tinkoff.fintech.ninethlab.model.Model;
@@ -25,8 +29,21 @@ public class Presenter implements IPresenter {
     }
 
     @Override
-    public void newData(List<String> data){
+    public void newData(HashMap<Long, String> data){
         Log.i("Presenter", "Send request to View");
-        view.updateScreen(data);
+
+        Set<Long> localKeys = data.keySet();
+        List<Long> localDates = new ArrayList<>();
+        List<String> titles = new ArrayList<>();
+
+        localDates.addAll(localKeys);
+        Collections.sort(localDates);
+        Collections.reverse(localDates);
+
+        for (int i = 0; i < localDates.size(); i++){
+            titles.add(data.get(localDates.get(i)));
+        }
+
+        view.updateScreen(titles);
     }
 }
