@@ -171,21 +171,26 @@ public class CustomGraphView extends View {
             setColor(curve.getColor());
 
             //  Draw function
-            for(; newX <= lastX; newX+= 0.05f){
+            for(; newX <= lastX; newX+= 0.05f) {
                 if (newX > limitX) break;
                 newY = a * newX + k;
-                if (graphHeight - newY * step < graphHeight && graphHeight - newY * step > graphPadding) {
+            }   /*if (graphHeight - newY * step < graphHeight && graphHeight - newY * step > graphPadding) {
                     canvas.drawLine(graphPadding * 2.0f + oldX * step, graphHeight - oldY * step,
                             graphPadding * 2.0f + newX * step, graphHeight - newY * step, mFuncPaint);
                     finalX = newX;
                     finalY = newY;
                 }
                 oldX = newX;
-                oldY = newY;
-            }
+                oldY = newY;*/
+            //}
+
+            canvas.drawLine(graphPadding * 2.0f + oldX * step, graphHeight - oldY * step,
+                    graphPadding * 2.0f + newX * step, graphHeight - newY * step, mFuncPaint);
+            finalX = newX;
+            finalY = newY;
 
             if (finalX >= 0) {
-                canvas.drawText("y = " + a + " * x + " + k, graphPadding * 2.0f + finalX * step - 30.0f, graphHeight - finalY * step - 15.0f, mAxisName);
+                canvas.drawText("y = " + a + " * x + " + k, graphPadding * 2.0f + finalX / 2.0f * step - 30.0f, graphHeight - finalY / 2.0f * step - 15.0f, mAxisName);
             }
 
         } else if (firstX > startX && firstX < lastX){
