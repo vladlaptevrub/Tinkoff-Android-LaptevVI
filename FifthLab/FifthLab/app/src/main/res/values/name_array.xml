@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="nameItems">
+        <item>y = x^2</item>
+        <item>y = sqrt(x)</item>
+        <item>y = 1/x</item>
+        <item>y = cos(x)</item>
+        <item>y = sin(x)</item>
+    </string-array>
+</resources>
